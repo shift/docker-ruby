@@ -1,0 +1,17 @@
+# Ruby
+
+Docker image inheritance:
+ * shift/ubuntu:15.04
+ * ubuntu:15.04
+
+## Volumes
+
+None
+
+## Ports
+
+None
+
+## Example usage
+
+This is an intermediary container and not designed to be used directly.
