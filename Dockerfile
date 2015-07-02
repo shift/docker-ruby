@@ -2,7 +2,7 @@ FROM shift/ubuntu:15.04
 
 MAINTAINER Vincent Palmer <shift@someone.section.me>
 
-ENV RUBY_VERSION 2.2.2
+ENV RUBY_VERSION 2.1.5
 ENV HOME /root
 
 RUN apt-get update \
