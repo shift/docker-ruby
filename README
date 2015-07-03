@@ -1,6 +1,7 @@
 # Ruby
 
 Docker image inheritance:
+ * shift/java:8
  * shift/ubuntu:15.04
  * ubuntu:15.04
 
