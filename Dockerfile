@@ -6,7 +6,7 @@ ENV RUBY_VERSION 2.1.5
 ENV HOME /root
 
 RUN apt-get update \
-    && apt-get install build-essential curl git ruby ruby-dev libpq5 libpq-dev nodejs --yes --force-yes \
+    && apt-get install build-essential curl git ruby ruby-dev libpq5 libpq-dev nodejs libreadline-dev --yes --force-yes \
     && echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc \
     && gem install bundler \
     && useradd -ms /bin/bash deploy \
