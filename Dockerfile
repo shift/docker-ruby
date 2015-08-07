@@ -6,7 +6,7 @@ ENV RUBY_VERSION 2.2.2
 ENV HOME /root
 
 RUN apt-get update \
-    && apt-get install build-essential curl git ruby ruby-dev libpq5 libpq-dev nodejs --yes --force-yes \
+    && apt-get install build-essential curl git ruby ruby-dev libpq5 libpq-dev nodejs libreadline-dev --yes --force-yes \
     && echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc \
     && gem install bundler \
     && useradd -ms /bin/bash deploy \
@@ -39,14 +39,4 @@ ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/shims
 ENV RAILS_ENV docker
 
 WORKDIR /home/deploy/app
-ONBUILD ADD . /home/deploy/app
-ONBUILD USER root
-ONBUILD RUN chown deploy:deploy -R /home/deploy
-ONBUILD USER deploy
-ONBUILD RUN bash -l -c 'eval "$(rbenv init -)" \
-               && bundle install --binstubs .bundle/bin --deployment --jobs 5 --without development test \
-               && bundle check \
-               && bundle exec rake tmp:create \
-               && mkdir log \
-               && bundle env'
 
