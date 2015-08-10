@@ -31,6 +31,7 @@ ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/shims
 RUN bash -l -c 'eval "$(rbenv init -)" \
                 && rbenv install $RUBY_VERSION \
                 && rbenv local $RUBY_VERSION \
+                && rnenv global $RUBY_VERSION \
                 && gem install bundler'
 
 WORKDIR /home/deploy/app
