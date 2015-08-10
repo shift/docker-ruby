@@ -25,7 +25,6 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R deploy:deploy /home/deploy
 
-USER deploy
 WORKDIR /home/deploy
 ENV HOME /home/deploy
 ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/shims:$PATH
@@ -33,10 +32,6 @@ RUN bash -l -c 'eval "$(rbenv init -)" \
                 && rbenv install $RUBY_VERSION \
                 && rbenv local $RUBY_VERSION \
                 && gem install bundler'
-
-ENV HOME /home/deploy
-ENV PATH $HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/shims:$PATH
-ENV RAILS_ENV docker
 
 WORKDIR /home/deploy/app
 
