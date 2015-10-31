@@ -47,6 +47,6 @@ ONBUILD RUN bash -l -c 'eval "$(rbenv init -)" \
                && bundle install --binstubs .bundle/bin --deployment --jobs 5 --without development test \
                && bundle check \
                && bundle exec rake tmp:create \
-               && mkdir log \
+               && mkdir -p log \
                && bundle env'
 
