@@ -1,4 +1,4 @@
-FROM shift/ruby
+FROM shift/ruby:2.3.0
 
 MAINTAINER Vincent Palmer <shift@someone.section.me>
 USER root
