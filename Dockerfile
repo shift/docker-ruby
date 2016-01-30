@@ -36,3 +36,10 @@ RUN bash -l -c 'eval "$(rbenv init -)" \
 
 WORKDIR /home/deploy/app
 
+ONBUILD ADD . /home/deploy/app
+ONBUILD USER root
+ONBUILD RUN chown deploy:deploy -R /home/deploy
+ONBUILD USER deploy
+ONBUILD RUN bash -l -c 'eval "$(rbenv init -)" \
+               && bundle install --binstubs .bundle/bin --deployment --jobs 5 --without development test \
+               && bundle env'
